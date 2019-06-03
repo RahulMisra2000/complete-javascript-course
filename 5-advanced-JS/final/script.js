@@ -34,6 +34,13 @@ console.log(mark.lastName);
 
 
 
+// john and jane and mark objects have a __proto__ property which points to the prototoype property of the constructor 
+// function that was used to create the john, jane and mark objects
+// This is the PROTOTYPAL INHERITANCE
+// john.__proto__ == Person.prototype         will return true
+// Ultimately all objects (objects here is defined as anything other than primitives which are 
+// number,string,boolean,null,undefined) chain to Object in the end.
+
 /////////////////////////////
 // Lecture: Object.create
 /*
