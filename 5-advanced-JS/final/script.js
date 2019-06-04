@@ -450,8 +450,12 @@ c) correct answer (I would use a number for this)
     
     var questions = [q1, q2, q3];
     
+    
+    // ---------------------------------------------        
+    // RM - This is how we do counters in javascript
+    // ---------------------------------------------
     function score() {
-        var sc = 0;
+        var sc = 0;                         // counter
         return function(correct) {
             if (correct) {
                 sc++;
@@ -460,7 +464,8 @@ c) correct answer (I would use a number for this)
         }
     }
     var keepScore = score();
-    
+    // RM - This is how we do counters in javascript
+    // ---------------------------------------------    
     
     function nextQuestion() {
 
