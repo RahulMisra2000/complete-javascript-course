@@ -171,6 +171,7 @@ var budgetController = (function() {
 // UI CONTROLLER
 var UIController = (function() {
     
+    // To avoid magic strings all over the code
     var DOMstrings = {
         inputType: '.add__type',
         inputDescription: '.add__description',
