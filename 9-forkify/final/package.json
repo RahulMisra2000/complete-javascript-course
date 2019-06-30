@@ -20,6 +20,13 @@
     "webpack-dev-server": "^3.1.1"
   },
   "dependencies": {
+    "//" : [
+      " *************************** COMMENTS if they generate error then remove them*********************************",
+      "axios is better than using Fetch for ajax",
+      "babel-polyfill provides polyfills for features that we are using in ES6 that did not exists in ES5 eg PROMISES",
+      "uniqid is great for generating unique ids",
+      " *************************** COMMENTS ************************************************************************"
+      ],
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "fractional": "^1.0.0",
