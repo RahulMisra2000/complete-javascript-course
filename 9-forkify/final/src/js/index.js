@@ -16,6 +16,8 @@ import { elements, renderLoader, clearLoader } from './views/base';
  */
 const state = {};
 
+
+// *********************************************** THINK of this as the CONTROLLER *****************************************
 /** 
  * SEARCH CONTROLLER
  */
