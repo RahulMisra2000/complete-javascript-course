@@ -8,7 +8,9 @@ import * as listView from './views/listView';
 import * as likesView from './views/likesView';
 import { elements, renderLoader, clearLoader } from './views/base';
 
-/** Global state of the app
+
+
+/** Global state of the app ************************************************************************************************
  * - Search object
  * - Current recipe object
  * - Shopping list object
@@ -17,9 +19,9 @@ import { elements, renderLoader, clearLoader } from './views/base';
 const state = {};
 
 
-// *********************************************** THINK of this as the CONTROLLER *****************************************
+
 /** 
- * SEARCH CONTROLLER
+ *************************************************************************  SEARCH CONTROLLER *************************************
  */
 const controlSearch = async () => {
     // 1) Get query from view
@@ -48,6 +50,10 @@ const controlSearch = async () => {
     }
 }
 
+
+/* **************************************************** EVENT LISTENERS ******************************************************
+
+
 elements.searchForm.addEventListener('submit', e => {
     // ********************************* because the natural consequence of submitting a FORM is to refresh the page ********
     // ********************************* and we want to prevent that, because we are going to use AJAX *****************************
@@ -65,10 +71,17 @@ elements.searchResPages.addEventListener('click', e => {
     }
 });
 
+/* **************************************************** EVENT LISTENERS ******************************************************
+
+
+
+
+
 
 /** 
- * RECIPE CONTROLLER
+ *************************************************************************  RECIPE CONTROLLER *************************************
  */
+
 const controlRecipe = async () => {
     // Get ID from url
     const id = window.location.hash.replace('#', '');
@@ -107,12 +120,19 @@ const controlRecipe = async () => {
     }
 };
  
+
+
+/* **************************************************** EVENT LISTENERS ******************************************************
 ['hashchange', 'load'].forEach(event => window.addEventListener(event, controlRecipe));
+/* **************************************************** EVENT LISTENERS ******************************************************
+
+
 
 
 /** 
- * LIST CONTROLLER
+ * *********************************************************************  LIST CONTROLLER ***********************************
  */
+
 const controlList = () => {
     // Create a new list IF there in none yet
     if (!state.list) state.list = new List();
@@ -145,7 +165,7 @@ elements.shopping.addEventListener('click', e => {
 
 
 /** 
- * LIKE CONTROLLER
+ * *********************************************************************  LIKE CONTROLLER ***********************************
  */
 const controlLike = () => {
     if (!state.likes) state.likes = new Likes();
@@ -180,6 +200,8 @@ const controlLike = () => {
     likesView.toggleLikeMenu(state.likes.getNumLikes());
 };
 
+
+/* **************************************************** EVENT LISTENERS ******************************************************
 // Restore liked recipes on page load
 window.addEventListener('load', () => {
     state.likes = new Likes();
@@ -215,3 +237,4 @@ elements.recipe.addEventListener('click', e => {
         controlLike();
     }
 });
+/* **************************************************** EVENT LISTENERS ******************************************************
