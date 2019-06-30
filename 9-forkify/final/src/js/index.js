@@ -23,32 +23,32 @@ const state = {};
 /** 
  *************************************************************************  SEARCH CONTROLLER *************************************
  */
+/* ************************************* I keep saying TELL below... because this is the controller, it tells the VIEW and the ****
+/* ************************************** MODEL to do tasks. These tasks are methods in the VIEW's class and MODEL's class ********
 const controlSearch = async () => {
-    // 1) Get query from view
-    const query = searchView.getInput();
+    
+     const query = searchView.getInput();                   // 1) *** Tell the VIEW to give information about data on the screen
 
-    if (query) {
-        // 2) New search object and add to state
-        state.search = new Search(query);
+    if (query) {        
+        state.search = new Search(query);                   // 2) *** Tell the MODEL to set itself up
 
-        // 3) Prepare UI for results
-        searchView.clearInput();
+        searchView.clearInput();                            // 3) *** Tell the VIEW to prepare itself for results
         searchView.clearResults();
         renderLoader(elements.searchRes);
 
-        try {
-            // 4) Search for recipes
-            await state.search.getResults();
-    
-            // 5) Render results on UI
-            clearLoader();
-            searchView.renderResults(state.search.result);
+        try {            
+            await state.search.getResults();                // 4) *** Tell the MODEL to get data
+               
+            clearLoader();                          
+            searchView.renderResults(state.search.result);  // 5) *** Tell the VIEW to render results
         } catch (err) {
             alert('Something wrong with the search...');
             clearLoader();
         }
     }
 }
+
+
 
 
 /* **************************************************** EVENT LISTENERS ******************************************************
