@@ -49,6 +49,8 @@ const controlSearch = async () => {
 }
 
 elements.searchForm.addEventListener('submit', e => {
+    // ********************************* because the natural consequence of submitting a FORM is to refresh the page ********
+    // ********************************* and we want to prevent that, because we are going to use AJAX *****************************
     e.preventDefault();
     controlSearch();
 });
