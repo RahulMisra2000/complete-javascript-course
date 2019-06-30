@@ -1,3 +1,4 @@
+// ****************************** Getting a pointer to DOM nodes in one place --- expensive operation --- also easy maintenance ********
 export const elements = {
     searchForm: document.querySelector('.search'),
     searchInput: document.querySelector('.search__field'),
@@ -14,6 +15,7 @@ export const elementStrings = {
     loader: 'loader'
 };
 
+// ****************************************** Adding a spinner ************************************************************************
 export const renderLoader = parent => {
     const loader = `
         <div class="${elementStrings.loader}">
@@ -25,7 +27,9 @@ export const renderLoader = parent => {
     parent.insertAdjacentHTML('afterbegin', loader);
 };
 
+// ****************************************** Removing a spinner ************************************************************************
 export const clearLoader = () => {
     const loader = document.querySelector(`.${elementStrings.loader}`);
+    // **** The only way to delete a node is by asking the parent to remove the child *********************************
     if (loader) loader.parentElement.removeChild(loader);
 };
