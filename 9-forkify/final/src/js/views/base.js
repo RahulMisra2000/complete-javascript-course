@@ -15,6 +15,10 @@ export const elementStrings = {
     loader: 'loader'
 };
 
+
+// ****** Think of this file as the BASE VIEW for all the other views. Meaning that this file will contain functions that 
+//        other views need. For example rendering a spinner and removing it  (AJAX needs) is useful in many views and hence
+//        it is coded here.
 // ****************************************** Adding a spinner ************************************************************************
 export const renderLoader = parent => {
     const loader = `
