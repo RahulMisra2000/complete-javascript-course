@@ -10,11 +10,11 @@ import { elements, renderLoader, clearLoader } from './views/base';
 
 
 
-/** Global state of the app ************************************************************************************************
- * - Search object
- * - Current recipe object
- * - Shopping list object
- * - Liked recipes
+/** ********************************************* Global state of the app *******************************************************
+ * - Search object                      // state.search
+ * - Current recipe object              // state.recipe
+ * - Shopping list object               // state.list
+ * - Liked recipes                      // state.likes
  */
 const state = {};
 
@@ -48,19 +48,13 @@ const controlSearch = async () => {
     }
 }
 
-
-
-
-/* **************************************************** EVENT LISTENERS ******************************************************
-
-
+/* ************************************* EVENT LISTENERS for the SEARCH related portion  ******************************************
 elements.searchForm.addEventListener('submit', e => {
     // ********************************* because the natural consequence of submitting a FORM is to refresh the page ********
     // ********************************* and we want to prevent that, because we are going to use AJAX *****************************
     e.preventDefault();
     controlSearch();
 });
-
 
 elements.searchResPages.addEventListener('click', e => {
     const btn = e.target.closest('.btn-inline');
@@ -70,8 +64,11 @@ elements.searchResPages.addEventListener('click', e => {
         searchView.renderResults(state.search.result, goToPage);
     }
 });
+/* ************************************* EVENT LISTENERS for the SEARCH related portion  ******************************************
 
-/* **************************************************** EVENT LISTENERS ******************************************************
+
+
+
 
 
 
@@ -81,7 +78,6 @@ elements.searchResPages.addEventListener('click', e => {
 /** 
  *************************************************************************  RECIPE CONTROLLER *************************************
  */
-
 const controlRecipe = async () => {
     // Get ID from url
     const id = window.location.hash.replace('#', '');
@@ -120,11 +116,15 @@ const controlRecipe = async () => {
     }
 };
  
-
-
 /* **************************************************** EVENT LISTENERS ******************************************************
 ['hashchange', 'load'].forEach(event => window.addEventListener(event, controlRecipe));
 /* **************************************************** EVENT LISTENERS ******************************************************
+
+
+
+
+
+
 
 
 
@@ -143,7 +143,7 @@ const controlList = () => {
         listView.renderItem(item);
     });
 }
-
+/* **************************************************** EVENT LISTENERS ******************************************************
 // Handle delete and update list item events
 elements.shopping.addEventListener('click', e => {
     const id = e.target.closest('.shopping__item').dataset.itemid;
@@ -162,6 +162,17 @@ elements.shopping.addEventListener('click', e => {
         state.list.updateCount(id, val);
     }
 });
+/* **************************************************** EVENT LISTENERS ******************************************************
+
+
+
+
+
+
+
+
+
+
 
 
 /** 
