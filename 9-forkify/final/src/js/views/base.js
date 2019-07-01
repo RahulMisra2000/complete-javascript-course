@@ -33,7 +33,14 @@ export const renderLoader = parent => {
 
 // ****************************************** Removing a spinner ************************************************************************
 export const clearLoader = () => {
+    
+    // ************** the queryselector has to be done here and not at the top of this file where the other are because ********
+    //                there this element does not exist... it is added to the DOM only when the above method is executed.
+    //                That is why it needs to be done here. So elements that are created at run time (like the spinner), they 
+    //                need to be document.querySelector at the time they are needed .....
+    //                **********************************************************************************************************
     const loader = document.querySelector(`.${elementStrings.loader}`);
-    // **** The only way to delete a node is by asking the parent to remove the child *********************************
+    
+    // **** The only way to delete a node is by asking the parent to remove the child ******************************************
     if (loader) loader.parentElement.removeChild(loader);
 };
