@@ -96,6 +96,11 @@ export const renderResults = (recipes, page = 1, resPerPage = 10) => {
     const start = (page - 1) * resPerPage;
     const end = page * resPerPage;
 
+    // ********** This is how we normally see it     .forEach(function(i){})     ****************************************
+    //            we can instead just use a function name instead and then define the function like this
+    //            const x = function(i){ }
+    //            .forEach(x)            
+    // ******************************************************************************************************************            
     recipes.slice(start, end).forEach(renderRecipe);
 
     // render pagination buttons
