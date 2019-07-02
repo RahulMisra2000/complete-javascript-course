@@ -148,17 +148,20 @@ const controlList = () => {
 elements.shopping.addEventListener('click', e => {
     const id = e.target.closest('.shopping__item').dataset.itemid;
 
-    // Handle the delete button
-    if (e.target.matches('.shopping__delete, .shopping__delete *')) {
-        // Delete from state
-        state.list.deleteItem(id);
+   if (e.target.matches('.shopping__delete, .shopping__delete *')) {        // ************* User clicked the delete button **
+            // Delete from state
+            state.list.deleteItem(id);
 
-        // Delete from UI
-        listView.deleteItem(id);
-
-    // Handle the count update
-    } else if (e.target.matches('.shopping__count-value')) {
+            // Delete from UI
+            listView.deleteItem(id);
+    
+    } else if (e.target.matches('.shopping__count-value')) {                // ************ User clicked the step ************
+        // ************ The user has clicked the step (up or down) so let's get the value from the screen (aka DOM)
         const val = parseFloat(e.target.value, 10);
+        
+        // ************ Let us take that value and update the javascript variable
+        // Basically, here we are moving the bringing over the user entered data from the screen and into our javascript variable
+        // VERY IMPORTANT to see the direction of movement of data here ...
         state.list.updateCount(id, val);
     }
 });
