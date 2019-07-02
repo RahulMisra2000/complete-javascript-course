@@ -148,14 +148,13 @@ const controlList = () => {
 elements.shopping.addEventListener('click', e => {
     const id = e.target.closest('.shopping__item').dataset.itemid;
 
-   if (e.target.matches('.shopping__delete, .shopping__delete *')) {        // ************* User clicked the delete button **
-            // Delete from state
-            state.list.deleteItem(id);
-
-            // Delete from UI
-            listView.deleteItem(id);
+   if (e.target.matches('.shopping__delete, .shopping__delete *')) {    // ************* User clicked the delete button **
+            state.list.deleteItem(id);                                  // Telling the List Model to delete it an item from it
+            
+            listView.deleteItem(id);                                    // Telling the listView to delete an item from it
+                                                                        // this basically removes the DOM node  (removeChild)
     
-    } else if (e.target.matches('.shopping__count-value')) {                // ************ User clicked the step ************
+    } else if (e.target.matches('.shopping__count-value')) {            // ************ User clicked the step ************
         // ************ The user has clicked the step (up or down) so let's get the value from the screen (aka DOM)
         const val = parseFloat(e.target.value, 10);
         
