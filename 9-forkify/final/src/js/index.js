@@ -236,7 +236,12 @@ elements.recipe.addEventListener('click', e => {
             state.recipe.updateServings('dec');
             recipeView.updateServingsIngredients(state.recipe);
         }
-    } else if (e.target.matches('.btn-increase, .btn-increase *')) {
+    } 
+        // ************************ checks to see if the e.target element has any of these css selectors on it ***********************
+        // will be true if the target element has a class called btn_increase attached to it or the target element is a child 
+        // element of an element that has class btn-increase attached to it **********************************************************
+        else if (e.target.matches('.btn-increase, .btn-increase *')) {    
+        
         // Increase button is clicked
         state.recipe.updateServings('inc');
         recipeView.updateServingsIngredients(state.recipe);
