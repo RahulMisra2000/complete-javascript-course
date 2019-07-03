@@ -29,6 +29,9 @@ export const renderLike = like => {
 };
 
 export const deleteLike = id => {
+    // ******** document.querySelector(`.likes__link[href*="${id}"]`)   will give us the <a tag for example in the method above
+    //          .parentElement will give us the <li> element above it and that is what that needs to be deleted
+    //          we have to go to its parent and then deletel the child 
     const el = document.querySelector(`.likes__link[href*="${id}"]`).parentElement;
     if (el) el.parentElement.removeChild(el);
 }
